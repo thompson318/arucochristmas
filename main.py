@@ -25,10 +25,10 @@ def get_marker_pos(tree):
 
 
 def light_led(tree, led_no):
-    tree.led[led_no].on()
+    tree.leds[led_no].on()
 
 def delight_led(tree, led_no):
-    tree.led[led_no].on()
+    tree.leds[led_no].off()
 
 if __name__ == '__main__':
 
