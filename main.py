@@ -18,8 +18,8 @@ def get_marker_pos(tree):
             x = np.mean(np.array(frame[3]).flat[3::16])
             print ("\nx = ", x) 
             print ("y = ", np.mean(np.array(frame[3]).flat[7::16])) 
-            light_led(tree, int[x]%27)
-            delight_led(tree, int[x]%27 + 1)
+            light_led(tree, int(x)%27)
+            delight_led(tree, int(x)%27 + 1)
         else:
             print('.',end='')
 
