@@ -19,6 +19,7 @@ def get_marker_pos(tree):
     capture = PiRGBArray(camera)
 
     while True:
+        capture.truncate(0)
         camera.capture(capture, format = 'bgr')
         image = capture.array
         frame = tracker.get_frame(image)
