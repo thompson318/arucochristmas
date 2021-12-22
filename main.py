@@ -8,6 +8,8 @@ def light_led(tree, led_no):
     tree.leds[led_no].on()
 
 def delight_led(tree, led_no):
+    if led_no > 25:
+        led_no -= 26
     print("de-lighting", led_no)
     tree.leds[led_no].off()
 
@@ -19,8 +21,8 @@ if __name__ == '__main__':
         ok, x,y = get_marker_pos(artracker, camera)
         if ok:
             print ("\n[x, y] = ", x, y) 
-            light_led(tree, int(x)%27)
-            delight_led(tree, int(x)%27 + 1)
+            light_led(tree, int(x)%26)
+            delight_led(tree, int(x)%26 + 1)
         else:
             print('.',end='')
 
