@@ -2,9 +2,6 @@
 An interface between skarucotracker and a raspberry pi
 Christmas tree
 """
-
-from gpiozero import LEDBoard #pylint:disable=import-error
-
 from arucochristmas.aruco import init_camera_and_tracker, get_marker_pos
 from arucochristmas.christmas import initialise_tree, light_led, delight_led
 
