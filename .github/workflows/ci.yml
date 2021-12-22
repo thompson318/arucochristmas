@@ -17,15 +17,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install tox
+          pip install pylint
 
-      - name: Run tox on ubuntu using xvfb
+      - name: Run lint
         if: startsWith(matrix.os, 'ubuntu')
         run: |
-          tox
+          pylint --rcfile=tests/pylintrc sksurgeryvtk main.py
 
-      - name: Run coveralls
-        run: |
-          pip install coveralls pyyaml
-          coveralls
+
 
