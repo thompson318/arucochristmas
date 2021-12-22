@@ -1,2 +1,4 @@
 gpiozero
 scikit-surgeryarucotracker
+RPi.GPIO
+picamera[array]
