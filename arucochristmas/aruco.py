@@ -1,5 +1,5 @@
 """ Module to provide the aruco tracking logic """
-
+#pylint:disable=import-error
 import numpy as np
 from picamera import PiCamera
 from picamera.array import PiRGBArray
@@ -35,13 +35,14 @@ def get_marker_pos(artracker, camera):
     capture = PiRGBArray(camera)
     camera.capture(capture, format='bgr')
     image = capture.array
-    frame = artracker.get_frame(image)
+    (_port_handles, _timestamps, _framenumbers,
+     tracking, _quality) = artracker.get_frame(image)
     x_ord = None
     y_ord = None
-    ok = False
-    if frame[3]:
-        x_ord = np.mean(np.array(frame[3]).flat[3::16])
-        y_ord = np.mean(np.array(frame[3]).flat[7::16])
-        ok = True
+    got_frame = False
+    if tracking:
+        x_ord = np.mean(np.array(tracking).flat[3::16])
+        y_ord = np.mean(np.array(tracking).flat[7::16])
+        got_frame = True
 
-    return ok, x_ord, y_ord
+    return got_frame, x_ord, y_ord
