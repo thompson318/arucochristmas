@@ -1,7 +1,7 @@
 from gpiozero import LEDBoard
 from gpiozero.tools import random_values
 
-from arucochristmas.aruco import init_camera_and_tracker get_marker_pos
+from arucochristmas.aruco import init_camera_and_tracker, get_marker_pos
 
 def light_led(tree, led_no):
     print("lighting", led_no)

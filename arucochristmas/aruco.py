@@ -16,7 +16,7 @@ def init_camera_and_tracker():
     config = { 
                "video source" : 'none',
                "debug" : False,
-               "aruco dictionary" : "DICT_ARUCO_ORIGINAL"
+               "aruco dictionary" : "DICT_4X4_50"
              }
     artracker = ArUcoTracker(config)
 
@@ -42,5 +42,6 @@ def get_marker_pos(artracker, camera):
     if frame[3]:
         x = np.mean(np.array(frame[3]).flat[3::16])
         y = np.mean(np.array(frame[3]).flat[7::16]) 
-    
+        ok = True
+
     return ok, x, y
