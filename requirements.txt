@@ -1,4 +1,4 @@
 gpiozero
-scikit-surgeryarucotracker
+scikit-surgeryarucotracker<0.2.6 #0.2.6 uses f strings which breaks with py35
 RPi.GPIO
 picamera[array]

@@ -44,17 +44,3 @@ def get_marker_pos(artracker, camera):
         y = np.mean(np.array(frame[3]).flat[7::16]) 
     
     return ok, x, y
-
-def light_led(tree, led_no):
-    print("lighting", led_no)
-    tree.leds[led_no].on()
-
-def delight_led(tree, led_no):
-    print("de-lighting", led_no)
-    tree.leds[led_no].off()
-
-if __name__ == '__main__':
-
-    tree=LEDBoard(*range(2,28), pwm=False)    
-    get_marker_pos(tree)
-
