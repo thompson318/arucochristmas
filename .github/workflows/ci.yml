@@ -22,7 +22,7 @@ jobs:
       - name: Run lint
         if: startsWith(matrix.os, 'ubuntu')
         run: |
-          pylint --rcfile=tests/pylintrc sksurgeryvtk main.py
+          pylint --rcfile=tests/pylintrc arucochristmas main.py
 
 
 
