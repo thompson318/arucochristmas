@@ -6,21 +6,9 @@ Christmas tree
 from gpiozero import LEDBoard #pylint:disable=import-error
 
 from arucochristmas.aruco import init_camera_and_tracker, get_marker_pos
+from arucochristmas.christmas import initialise_tree, light_led, delight_led
 
-def light_led(tree, led_no):
-    """light the led"""
-    print("lighting", led_no)
-    tree.leds[led_no].on()
-
-def delight_led(tree, led_no):
-    """delight the led"""
-    if led_no > 25:
-        led_no -= 26
-    print("de-lighting", led_no)
-    tree.leds[led_no].off()
-
-
-tree=LEDBoard(*range(2,28), pwm=False)
+tree=initialise_tree()
 artracker, camera = init_camera_and_tracker()
 while True:
     ok, x_ord, y_ord = get_marker_pos(artracker, camera)

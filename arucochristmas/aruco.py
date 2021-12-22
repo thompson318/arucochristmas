@@ -41,6 +41,7 @@ def get_marker_pos(artracker, camera):
     y_ord = None
     got_frame = False
     if tracking:
+        #pylint:disable=unsubscriptable-object
         x_ord = np.mean(np.array(tracking).flat[3::16])
         y_ord = np.mean(np.array(tracking).flat[7::16])
         got_frame = True
