@@ -15,14 +15,14 @@ def delight_led(tree, led_no):
 
 if __name__ == '__main__':
 
-    tree=LEDBoard(*range(2,28), pwm=False)    
+    tree=LEDBoard(*range(2,28), pwm=False)
     artracker, camera = init_camera_and_tracker()
     while True:
-        ok, x,y = get_marker_pos(artracker, camera)
+        ok, x_ord, y_ord = get_marker_pos(artracker, camera)
         if ok:
-            print ("\n[x, y] = ", x, y) 
-            light_led(tree, int(x)%26)
-            delight_led(tree, int(x)%26 + 1)
+            print ("\n[x, y] = ", x_ord, y_ord)
+            light_led(tree, int(x_ord)%26)
+            delight_led(tree, int(x_ord)%26 + 1)
         else:
             print('.',end='')
 
